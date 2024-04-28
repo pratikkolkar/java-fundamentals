@@ -1,4 +1,4 @@
-package streams;
+package java8;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * StreamExample
  */
-public class StreamExample {
+public class J801StreamExample {
 
     public static void main(String[] args) {
         /**
