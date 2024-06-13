@@ -75,7 +75,7 @@ public class J801StreamExample {
 
         System.out.println("First non-repeating element: " + nonRepeatingElement);
 
-        // Q4: Find the longest string in the array
+        // Q4: Find the 2nd highest number in the array
         int[] num = { 2, 3, 61, 12, 65, 23, 88, 32, 44 };
         Integer n = Arrays.stream(num)
                 .boxed() // convert to wrapper class
