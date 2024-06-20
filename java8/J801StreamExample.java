@@ -3,6 +3,7 @@ package java8;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -109,6 +110,25 @@ public class J801StreamExample {
         List<String> list =Arrays.asList(strArr);
         String joinedString=String.join("-", list);
         System.out.println("Joined String: "+joinedString);
+
+
+        // Q8: Sort Map using java 8
+        Map<String, Integer> empMap = new HashMap<>();
+        empMap.put("Ronaldo", 16);
+        empMap.put("Messi", 21);
+        empMap.put("Neymar", 20);
+        
+        //sort by Key
+        Map<String, Integer> sortedKeyMap = empMap.entrySet().stream()
+                                                .sorted(Map.Entry.comparingByKey()) // Map.Entry.comparingByKey(Comparator.reverseOrder())
+                                                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue,newValue)->oldValue, LinkedHashMap::new));
+        System.out.println("Sorted Key Map: "+sortedKeyMap);
+
+        // sort by value
+        Map<String, Integer> sortedValueMap = empMap.entrySet().stream()
+                                                .sorted(Map.Entry.comparingByValue()) // Map.Entry.comparingByValue(Comparator.reverseOrder())
+                                                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue,newValue)->oldValue, LinkedHashMap::new));
+        System.out.println("Sorted Value Map: "+sortedValueMap);
 
     }
 }
